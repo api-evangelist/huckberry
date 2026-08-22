@@ -1,0 +1,65 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Direct HTTPS probes of /.well-known/* on every host associated with Huckberry
+  (huckberry.com, help.huckberry.com), 2026-08-22, browser User-Agent.
+note: >-
+  No /.well-known document was retrieved. Every path on huckberry.com answers HTTP 403
+  with a Cloudflare managed challenge (response header cf-mitigated: challenge, body
+  "Just a moment..."), so absence on that host is UNCONFIRMED rather than measured — the
+  edge refuses the request before any document is served, and it refuses a nonsense
+  control path identically. help.huckberry.com is a Zendesk help-center tenant and
+  returns a clean 404 help-center page for every /.well-known path. No WellKnown or
+  SecurityTxt pointer is emitted in apis.yml, because nothing was served.
+hosts:
+- host: huckberry.com
+  edge: Cloudflare (managed challenge on all paths)
+  documents:
+  - path: /.well-known/security.txt
+    status: 403
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 403
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 403
+    file: null
+  - path: /.well-known/api-catalog
+    status: 403
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 403
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 403
+    file: null
+  - path: /.well-known/agent.json
+    status: 403
+    file: null
+  - path: /.well-known/ucp
+    status: 403
+    file: null
+- host: help.huckberry.com
+  edge: Zendesk help center tenant
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null

@@ -1,17 +1,37 @@
 aid: huckberry
 name: Huckberry
-description: 'Huckberry is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Huckberry is an American direct-to-consumer online retailer of men's apparel, outdoor
+  gear and lifestyle goods, founded in 2010 by Andy Forch and Richard Greiner and
+  headquartered in San Francisco with offices in Austin and Columbus. It pairs a
+  first-party e-commerce storefront with a large editorial operation — the Huckberry
+  Journal — and an in-house brand portfolio, selling an "everyday adventure" assortment
+  that sits between traditional outdoor retail and menswear. Huckberry is a retailer, not
+  a software vendor: it publishes no developer program, no public API, no SDK and no
+  machine-readable contract. Its public GitHub organization (Huckberry Inc) holds eight
+  repositories, seven of them forks of third-party Ruby e-commerce gems — Solidus AvaTax,
+  Affirm, Paperclip, omniauth-slack — which evidence a self-hosted Ruby storefront rather
+  than a published platform. Partner and affiliate integration is outsourced to the
+  Partnerize network, and customer self-service runs on a Zendesk help center tenant at
+  help.huckberry.com.
 url: https://raw.githubusercontent.com/api-evangelist/huckberry/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-source-url: https://forgeglobal.com/huckberry_stock/
+x-tier: profiled
+x-tier-reason: enrichment-pipeline
 specificationVersion: '0.20'
 created: '2026-08-22'
 modified: '2026-08-22'
 tags:
 - Company
+- E-Commerce
+- Retail
+- Direct to Consumer
+- Apparel
+- Outdoor
+- Consumer Goods
+- Media
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +40,44 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://forgeglobal.com/huckberry_stock/
+  url: https://huckberry.com/
+- type: GitHubOrganization
+  url: https://github.com/Huckberry
+- type: Support
+  url: https://help.huckberry.com/hc/en-us
+- type: TermsOfService
+  url: https://huckberry.com/terms
+- type: DomainSecurity
+  url: security/huckberry-domain-security.yml
+- type: LLMsTxt
+  url: llms/huckberry-llms.txt
+x-enrichment:
+  date: '2026-08-22'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    Huckberry is a direct-to-consumer retailer with no developer program: api., developer.,
+    developers., partners., status. and mcp.huckberry.com do not resolve in DNS, its public
+    GitHub organization (Huckberry Inc) is eight repositories of which seven are forks of
+    third-party Ruby e-commerce gems, affiliate integration is outsourced to Partnerize, and
+    the only anonymously readable machine surface on any Huckberry host is Zendesk's own Help
+    Center API on the help.huckberry.com tenant; huckberry.com itself answers every path —
+    /llms.txt, /openapi.json, /graphql, /api/mcp and all /.well-known/* — with an identical
+    HTTP 403 Cloudflare managed challenge, so absence on that host is unconfirmed rather than
+    measured.
+  evidence:
+  - url: https://huckberry.com/.well-known/agent-card.json
+    status: 403
+  - url: https://huckberry.com/openapi.json
+    status: 403
+  - url: https://help.huckberry.com/.well-known/api-catalog
+    status: 404
+  - url: https://help.huckberry.com/api/v2/help_center/en-us/articles.json
+    status: 200
+  - url: https://api.github.com/orgs/Huckberry
+    status: 200
+  checked: '2026-08-22'
