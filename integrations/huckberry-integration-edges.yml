@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/huckberry/integrations
+- https://n8n.io/integrations/huckberry/
+- https://composio.dev/toolkits/huckberry
+- https://monid.ai/tools/huckberry
+checked:
+- https://composio.dev/toolkits/huckberry
+- https://monid.ai/tools/huckberry
+- https://n8n.io/integrations/huckberry/
+- https://zapier.com/apps/huckberry/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
